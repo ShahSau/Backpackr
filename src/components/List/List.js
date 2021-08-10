@@ -3,14 +3,29 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import useStyles from './styles.js';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
-const List = ({places}) => {
+const List = ({places,childCliked, isLoading, type, setType, rating, setRating}) => {
     const classes = useStyles();
-    const [type, setType] = useState('restaurant')
-    const [rating, setRating] = useState('')
+    
+
+    // if we put what we want to print in {} it will print it with details. if value is 5, with out {} it will print 5
+    // but with {} it will print childCliked: 5
+    console.log({childCliked})
+    const [elRefs, setElRefs] = useState([])
+    useEffect(()=>{ 
+      // this will create an array of the places and i indicate the clicked place
+      const refs = Array(places?.length).fill().map((_, i)=> elRefs[i || createRef()])
+      setElRefs(refs)
+    },[places])
    
   return (
     <div className={classes.container}>
         <Typography variant="h4">Food & Dining around you</Typography>
+        {isLoading ? (
+          <div className={classes.loading}>
+            <CircularProgress size="5rem" />
+          </div>
+        ): (
+          <>
         <FormControl className={classes.formControl}>
             <InputLabel id="type">Type</InputLabel>
             <Select value={type} onChange={(e)=> setType(e.target.value)}>
@@ -31,10 +46,16 @@ const List = ({places}) => {
         <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
               <Grid key={i} item xs={12}>
-                <PlaceDetails place={place}/>
+                <PlaceDetails 
+                place={place} 
+                selected={Number(childCliked) === i}
+                refProp = {elRefs[i]}
+                />
               </Grid>
             ))}
         </Grid>
+        </>
+        )}
     </div>
   );
 };

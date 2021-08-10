@@ -9,36 +9,58 @@ import { getPlacesData } from './api';
 
 const App = () => {
     const [places, setPlaces]= useState([]);
-
+    const [filterdPlaces, setFilterdPlaces] = useState([])
     const [coordinates, setCoordinates] = useState({})
     const [bounds, setBounds]= useState({})
+
+    const [childCliked, setChildCliked] = useState(null)
+
+    const [isLoading, setIsLoading] = useState(false)
+    const [type, setType] = useState('restaurants')
+    const [rating, setRating] = useState('')
 
     useEffect(()=>{
         navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}})=>{
             setCoordinates({lat: latitude, lng: longitude})
         })
     },[])
+
     useEffect(()=>{
-        getPlacesData(bounds.sw, bounds.ne)
+        const filterdPlaces = places.filter((place)=> place.rating > rating)
+        setFilterdPlaces(filterdPlaces)
+    },[rating])
+    useEffect(()=>{
+        setIsLoading(true)
+        getPlacesData(type, bounds.sw, bounds.ne)
             .then((data)=>{
                 setPlaces(data)
-                console.log(data)
+                setIsLoading(false)
+                setFilterdPlaces([])
             })
-    },[coordinates, bounds])
+    },[type, coordinates, bounds])
     return (
         <>
             <CssBaseline />
             <Header />
             <Grid container spacing={3} style={{width: '100%'}}>
                 <Grid item xs={12} md={4}>
-                    <List places={places}/>
+                    <List 
+                        places={filterdPlaces.length ? filterdPlaces : places}
+                        childCliked={childCliked}
+                        isLoading={isLoading}
+                        type={type}
+                        setType={setType}
+                        rating={rating}
+                        setRating={setRating}
+                    />
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <Map 
                         setCoordinates={setCoordinates}
                         setBounds={setBounds}
                         coordinates={coordinates}
-                        places={places}
+                        places={filterdPlaces.length ? filterdPlaces : places}
+                        setChildCliked={setChildCliked}
                     />
                 </Grid>
             </Grid>
