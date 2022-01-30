@@ -1,6 +1,5 @@
 <div align="center">
-Live demo: https://backpackr.netlify.app/
-</div>
+
 <p>
 This is a travel advisor website, where users can search restaurants, hotels and attractions near them. Users can change the location and also filter the result.It also shows the current weather at that location. <br />
 </p>
@@ -15,3 +14,5 @@ This is a travel advisor website, where users can search restaurants, hotels and
  <img src="https://raw.githubusercontent.com/bugsounet/MMM-Weather/master/logo.png" alt="Weather API" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
  <img src="https://cloudfresh.com/wp-content/uploads/2020/04/975626gmp.png" alt="google" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
   </div>
+Live demo: https://backpackr.netlify.app/
+</div>
