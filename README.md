@@ -11,7 +11,6 @@ This is a travel advisor website, where users can search restaurants, hotels and
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
  <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" alt="material-UI" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
  <img src="https://avatars.githubusercontent.com/u/16919504?s=200&v=4" alt="Rapid API" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
- <img src="https://raw.githubusercontent.com/bugsounet/MMM-Weather/master/logo.png" alt="Weather API" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
  <img src="https://cloudfresh.com/wp-content/uploads/2020/04/975626gmp.png" alt="google" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
  </div>
 <div align="center">
