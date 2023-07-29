@@ -3,9 +3,9 @@
 <p>
 This is a travel advisor website, where users can search restaurants, hotels and attractions near them. Users can change the location and also filter the result.It also shows the current weather at that location. <br />
 </p>
-
+<div align="center">
 [![CI/CD](https://github.com/ShahSau/cicd/actions/workflows/main.yml/badge.svg)](https://github.com/ShahSau/Backpackr/actions/workflows/main.yml)
-
+</div>div>
 <h2>Technologies used:</h2>
 <div align="center">
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" height="30" style="vertical-align:top; margin:4px">&nbsp;&nbsp;
